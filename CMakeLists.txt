@@ -11,8 +11,6 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-
-  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -49,22 +47,18 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
- add_message_files(
-   FILES
-
-   test_custom_msg.msg
+# add_message_files(
+#   FILES
 #   Message1.msg
 #   Message2.msg
- )
+# )
 
 ## Generate services in the 'srv' folder
- add_service_files(
-   FILES
-
-   add2Ints.srv
+# add_service_files(
+#   FILES
 #   Service1.srv
 #   Service2.srv
- )
+# )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -74,10 +68,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
- generate_messages(
-   DEPENDENCIES
-   std_msgs
- )
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -111,10 +105,8 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES beginner_tutorials
-  CATKIN_DEPENDS roscpp rospy std_msgs
+#  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
-   CATKIN_DEPENDS roscpp rospy message_runtime
-
 )
 
 ###########
@@ -224,12 +216,3 @@ add_dependencies(listener beginner_tutorials_generate_messages_cpp)
 add_executable(forworder src/forworder.cpp)
 target_link_libraries(forworder ${catkin_LIBRARIES})
 add_dependencies(forworder beginner_tutorials_generate_messages_cpp)
-
-add_executable(turtulsimCon src/turtulsimCon.cpp)
-target_link_libraries(turtulsimCon ${catkin_LIBRARIES})
-add_dependencies(turtulsimCon beginner_tutorials_generate_messages_cpp)
-
-add_executable(add2IntSrv src/add2IntsSrv.cpp)
-target_link_libraries(add2IntSrv ${catkin_LIBRARIES})
-add_dependencies(add2IntSrv beginner_tutorials_generate_messages_cpp)
-#add_dependencies(turtulsimMiddleMan beginner_tutorials)

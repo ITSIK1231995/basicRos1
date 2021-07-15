@@ -33,7 +33,3 @@ rosnode list
 rostopic list
 rostopic info
 
-really nice tool to see stuff about the services :
-rosrun rqt_console rqt_console
-rqt_graph
-rosrun rqt_logger_level rqt_logger_level
