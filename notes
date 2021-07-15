@@ -1,0 +1,39 @@
+
+
+run ros :
+
+
+itsik@itsik-HusqvarnaPC:~/catkin_ws$ roscore
+
+
+build nodes : 
+add the cpp project
+in the cmake add:
+
+add_executable(talker src/talker.cpp)
+target_link_libraries(talker ${catkin_LIBRARIES})
+add_dependencies(talker beginner_tutorials_generate_messages_cpp)
+
+then : 
+itsik@itsik-HusqvarnaPC:~/catkin_ws$ catkin_make
+
+
+run a node : 
+
+itsik@itsik-HusqvarnaPC:~/catkin_ws$ source ~/catkin_ws/devel/setup.bash
+itsik@itsik-HusqvarnaPC:~/catkin_ws$ rosrun beginner_tutorials listener
+
+its very importent to source the setup.base
+
+
+
+
+can see the nodes and topics using :
+rosnode list
+rostopic list
+rostopic info
+
+really nice tool to see stuff about the services :
+rosrun rqt_console rqt_console
+rqt_graph
+rosrun rqt_logger_level rqt_logger_level
